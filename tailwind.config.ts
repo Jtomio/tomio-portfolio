@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
   	extend: {
+			scrollSnapType: { y: 'y mandatory' },
+      scrollSnapAlign: { start: 'start' },
+
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

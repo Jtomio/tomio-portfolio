@@ -2,10 +2,7 @@
 
 import { motion } from 'framer-motion'
 
-
-import React from 'react'
-
-export default function page() {
+export function About() {
   return (
     <section
       id="about"

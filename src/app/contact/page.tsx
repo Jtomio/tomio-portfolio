@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div>page</div>
+    <div className='flex items-center justify-center p-16'>
+      <div className="p-8 text-xl">Página Contato</div>
+    </div>
   )
 }
