@@ -18,21 +18,24 @@ export function Header() {
 
   return (
     <header className="w-full border-b border-border bg-background text-foreground">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-primary hover:opacity-80">
-          TOMIO <span className="text-muted-foreground text-sm">/ Dev</span>
+        <Link
+          href="/"
+          className="text-xl font-bold text-primary hover:opacity-80"
+        >
+          TOMIO <span className="text-sm text-muted-foreground">/ Dev</span>
         </Link>
 
         {/* Navegação */}
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden gap-6 md:flex">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-primary',
-                pathname === href ? 'text-primary' : 'text-muted-foreground'
+                pathname === href ? 'text-primary' : 'text-muted-foreground',
               )}
             >
               {label}

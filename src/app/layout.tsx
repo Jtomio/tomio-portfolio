@@ -1,19 +1,18 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Header } from "@/components/Header";
+import localFont from 'next/font/local'
+import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
+import { Header } from '@/components/Header'
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
+})
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
+})
 
 export const metadata = {
   title: 'Tomio / Dev — Portfólio Front-end',
@@ -27,7 +26,7 @@ export const metadata = {
     'Portfólio Dev',
     'Tomio',
     'Web Design',
-    'UX/UI'
+    'UX/UI',
   ],
   authors: [{ name: 'Tomio', url: 'https://tomio.dev' }],
   themeColor: '#74D79F',
@@ -39,29 +38,32 @@ export const metadata = {
     siteName: 'Tomio / Dev',
     images: ['/public/main-logo.png'], // imagem para preview
     locale: 'pt_PT',
-    type: 'website'
-  }
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange>
-              <Header />
-              {children}
-              
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="container-base">
+            <Header />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

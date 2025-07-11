@@ -35,44 +35,40 @@ export function Header() {
     <motion.header
       animate={{ y: hidden ? -80 : 0 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="fixed top-0 left-0 w-full z-50 bg-background border-b border-border shadow-sm backdrop-blur"
+      className="fixed left-0 top-0 z-50 w-full border-b border-border bg-background shadow-sm backdrop-blur"
     >
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between md:grid md:grid-cols-3">
+      <div className="container-base flex items-center justify-between py-4">
         {/* Logo à esquerda */}
         <Link
           href="/"
-          className="text-xl font-bold text-primary hover:opacity-80 cursor-pointer"
+          className="cursor-pointer text-xl font-bold text-primary hover:opacity-80"
         >
-          TOMIO <span className="text-muted-foreground text-sm">/ Dev</span>
+          TOMIO <span className="text-sm text-muted-foreground">/ Dev</span>
         </Link>
 
-        {/* Links centralizados (desktop) */}
-        <nav className="hidden md:flex justify-center gap-6">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={cn(
-                'text-sm font-medium transition-colors hover:text-primary cursor-pointer',
-                pathname === href ? 'text-primary' : 'text-muted-foreground'
-              )}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+        {/* Navegação e botão de tema à direita */}
+        <div className="hidden items-center gap-6 md:flex">
+          <nav className="flex gap-6">
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className={cn(
+                  'cursor-pointer text-sm font-medium transition-colors hover:text-primary',
+                  pathname === href ? 'text-primary' : 'text-muted-foreground',
+                )}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Toggle e menu mobile */}
-        <div className="flex items-center justify-end gap-2">
-          {/* Mobile: hambúrguer à direita */}
-          <div className="md:hidden">
-            <MobileNav />
-          </div>
+          <ModeToggle />
+        </div>
 
-          {/* Desktop: toggle do tema */}
-          <div className="hidden md:block">
-            <ModeToggle />
-          </div>
+        {/* Mobile: hambúrguer à direita */}
+        <div className="md:hidden">
+          <MobileNav />
         </div>
       </div>
     </motion.header>

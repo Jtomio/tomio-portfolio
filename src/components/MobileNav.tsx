@@ -26,29 +26,34 @@ export function MobileNav() {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon">
-          <Menu className="w-5 h-5" />
+          <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
 
       <SheetContent side="left" className="w-[250px] bg-background p-6">
         <SheetHeader>
-          <SheetTitle className="text-lg items-center justify-center font-semibold"> TOMIO <span className="text-muted-foreground text-sm">/ Dev</span> </SheetTitle>
+          <SheetTitle className="items-center justify-center text-lg font-semibold">
+            {' '}
+            TOMIO <span className="text-sm text-muted-foreground">
+              / Dev
+            </span>{' '}
+          </SheetTitle>
         </SheetHeader>
 
-         <Separator  className='mt-2'/>
+        <Separator className="mt-2" />
 
         <nav className="mt-6 flex flex-col gap-5">
           {navLinks.map(({ href, label }) => (
             <SheetClose asChild key={href}>
               <Link
                 href={href}
-                className="text-base font-medium text-foreground hover:text-primary transition-colors"
+                className="text-base font-medium text-foreground transition-colors hover:text-primary"
               >
                 {label}
               </Link>
             </SheetClose>
           ))}
-          <Separator  />
+          <Separator />
           <div className="mt-4">
             <ModeToggle />
           </div>
